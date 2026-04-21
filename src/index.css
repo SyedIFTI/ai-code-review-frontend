@@ -1,0 +1,82 @@
+@import "tailwindcss";
+:root {
+  --bg-color: #0d1117;
+  --panel-bg: rgba(22, 27, 34, 0.6);
+  --text-primary: #e6edf3;
+  --text-secondary: #7d8590;
+  --accent: #2f81f7;
+  --btn-bg: #238636;
+  --btn-hover: #2ea043;
+  --btn-disabled: #1b5c25;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+
+ background-image: 
+    radial-gradient(circle at 10% 20%, rgba(47, 129, 247, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(35, 134, 54, 0.15) 0%, transparent 40%);
+  background-attachment: fixed;
+  /* overflow: hidden; */
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #222;
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #000 transparent;
+}
+
+/* Also style CodeMirror's internal scroller smoothly */
+.cm-scroller::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.cm-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb:hover {
+  background: #222;
+}
+
+.cm-scroller {
+  scrollbar-width: thin;
+  scrollbar-color: #000 transparent;
+}

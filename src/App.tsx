@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AuthCallback from './pages/AuthPages/AuthCallback';
 import LoginWithGitHub from './pages/AuthPages/LoginWithGitHub';
@@ -13,6 +13,7 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
+import { Analytics } from '@vercel/analytics/react';
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       <Toaster position="bottom-right" reverseOrder={false} />
+      <Analytics />
     </AuthProvider>
   );
 };

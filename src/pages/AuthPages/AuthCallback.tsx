@@ -65,7 +65,7 @@ function AuthCallback() {
 
   // }, [])
 // Inside your login callback component (which has access to useAuth)
-const { fetchProfile,login } = useAuth();
+const { fetchProfile,login,loading } = useAuth();
 
 useEffect(() => {
   if (hasProcessed.current) return;
@@ -81,8 +81,9 @@ useEffect(() => {
 
     if (session) {
       try {
-        console.log("sending token request to backend")
+        // console.log("sending token request to backend")
        await login(session.access_token,session.refresh_token)
+       navigate('/')
       } catch (err: any) {
         toast.error('Session configuration failed');
         console.error(err);

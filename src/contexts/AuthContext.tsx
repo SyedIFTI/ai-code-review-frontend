@@ -3,6 +3,7 @@ import apiClient from '../hooks/apiClient';
 import type { User } from '../types/user';
 import { toast } from 'react-hot-toast';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 interface AuthContextType {
   user: User | null;
@@ -54,6 +55,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const logout = async () => {
     try {
+      await supabase.auth.signOut();
       await apiClient.post('/api/v1/auth/logout');
       setUser(null);
       toast.success('Logged out successfully');
@@ -73,13 +75,14 @@ const login = async (accessToken: string, refreshToken: string) => {
       refreshToken,
     }, { withCredentials: true });
     setUser(response.data.data);
-    toast.success('Login successful! Redirecting...');
-    window.location.href = '/';
+    toast.success('Login successful!');
+ 
   } catch (err: any) {
     console.error('Login failed:', err);
     setUser(null);
     setError('Login failed');
     toast.error('Login failed');
+    throw err; 
   } finally {
     setLoading(false);
   }

@@ -9,7 +9,7 @@ import { useAuth } from '../../contexts/AuthContext'
 function AuthCallback() {
   const [status, setStatus] = useState('Processing login...')
   const navigate = useNavigate()
-  const serverUrl = import.meta.env.VITE_SERVER_URL || 'http://localhost:8080';
+  const serverUrl = import.meta.env.VITE_SERVER_URL;
   const hasProcessed = useRef(false);
 // const {user,error} = useAuth()
   // useEffect(() => {

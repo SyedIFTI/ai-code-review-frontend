@@ -45,7 +45,7 @@ const startReview = useCallback((language: string, code: string) => {
     reset();
     setIsStreaming(true);
 
-    const serverUrl = import.meta.env.VITE_SERVER_URL || 'http://localhost:8080';
+    const serverUrl = import.meta.env.VITE_SERVER_URL;
     axios.post(`${serverUrl}/api/v1/ai/review-code`, {
         language,
         code

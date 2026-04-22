@@ -9,8 +9,8 @@ baseURL:import.meta.env.VITE_SERVER_URL,
     (response) => response,
     async(error)=>{
         const originalRequest = error.config
-       console.log("original Request",originalRequest)
-        if(error.response.status ===401 && !originalRequest._retry){
+    //    console.log("original Request",originalRequest)
+        if(error.response?.status ===401 && !originalRequest._retry){
             originalRequest._retry =  true
             try {
                await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/v1/auth/set-refreshToken`,{},{withCredentials:true})
